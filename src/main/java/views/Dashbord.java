@@ -5,6 +5,7 @@
 package views;
 
 import java.awt.event.*;
+import javax.swing.border.*;
 
 import models.DasbordImpl;
 import models.UserImpl;
@@ -52,8 +53,10 @@ public class Dashbord extends Base {
         btnAddService = new JButton();
         btnArchive = new JButton();
         txtSearch = new JTextField();
+        panel2 = new JPanel();
         scrollPane1 = new JScrollPane();
         tblNotCompleted = new JTable();
+        panel3 = new JPanel();
         scrollPane2 = new JScrollPane();
         tblCompleted = new JTable();
         label3 = new JLabel();
@@ -105,40 +108,67 @@ public class Dashbord extends Base {
             //---- txtSearch ----
             txtSearch.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
-            //======== scrollPane1 ========
+            //======== panel2 ========
             {
-                scrollPane1.setViewportView(tblNotCompleted);
+                panel2.setBorder(new TitledBorder(null, "Not Completed Services", TitledBorder.LEFT, TitledBorder.DEFAULT_POSITION));
+
+                //======== scrollPane1 ========
+                {
+                    scrollPane1.setViewportView(tblNotCompleted);
+                }
+
+                GroupLayout panel2Layout = new GroupLayout(panel2);
+                panel2.setLayout(panel2Layout);
+                panel2Layout.setHorizontalGroup(
+                    panel2Layout.createParallelGroup()
+                        .addComponent(scrollPane1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
+                );
+                panel2Layout.setVerticalGroup(
+                    panel2Layout.createParallelGroup()
+                        .addGroup(GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
+                );
             }
 
-            //======== scrollPane2 ========
+            //======== panel3 ========
             {
-                scrollPane2.setViewportView(tblCompleted);
+                panel3.setBorder(new TitledBorder(null, "Completed Services", TitledBorder.LEFT, TitledBorder.DEFAULT_POSITION));
+
+                //======== scrollPane2 ========
+                {
+                    scrollPane2.setViewportView(tblCompleted);
+                }
+
+                GroupLayout panel3Layout = new GroupLayout(panel3);
+                panel3.setLayout(panel3Layout);
+                panel3Layout.setHorizontalGroup(
+                    panel3Layout.createParallelGroup()
+                        .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
+                );
+                panel3Layout.setVerticalGroup(
+                    panel3Layout.createParallelGroup()
+                        .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
+                );
             }
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSearch)
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE))
-                            .addGroup(GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
-                                .addGap(288, 288, 288)
-                                .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtSearch)
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addComponent(btnCustomerAdd, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnAddService, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnArchive, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 285, Short.MAX_VALUE)))
-                        .addContainerGap())
+                                .addComponent(btnCustomerAdd, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAddService, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnArchive, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(291, Short.MAX_VALUE))
+                    .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
@@ -150,10 +180,11 @@ public class Dashbord extends Base {
                             .addComponent(btnCustomerAdd, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtSearch, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panel3, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(23, Short.MAX_VALUE))
             );
         }
 
@@ -192,7 +223,7 @@ public class Dashbord extends Base {
                         .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(label3, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
                             .addComponent(label4, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         );
         pack();
@@ -207,8 +238,10 @@ public class Dashbord extends Base {
     private JButton btnAddService;
     private JButton btnArchive;
     private JTextField txtSearch;
+    private JPanel panel2;
     private JScrollPane scrollPane1;
     public JTable tblNotCompleted;
+    private JPanel panel3;
     private JScrollPane scrollPane2;
     public JTable tblCompleted;
     private JLabel label3;

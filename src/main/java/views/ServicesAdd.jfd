@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "views.Base", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {seq l {space :::p, comp label6:::p:166:p, space :::p, comp label7:::p:323:p, space ::81:x, comp lblName:::p:300:p, space :::p}, comp panel2::t:::x}"
-			"$verticalGroup": "par l {seq l {space :::p, par l {comp lblName:::p::p, par b {comp label6::b:p:68:p, comp label7::b:p:46:p}}, space :::p, comp panel2:::p::p, space ::11:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, par l {comp lblName:::p::p, par b {comp label6::b:p:68:p, comp label7::b:p:46:p}}, space :::p, comp panel2:::p:347:p, space ::11:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 2
@@ -20,8 +20,8 @@ new FormModel {
 				"foreground": sfield java.awt.SystemColor windowText
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {comp panel1::l:::x, seq {space :::p, par l {comp label8::l:::x, comp txtCustomerSearch::l:::x, comp scrollPane1::l::876:x, comp scrollPane3::t::876:x}, space :::p}}"
-				"$verticalGroup": "par l {seq l {space :::x, comp panel1:::p:75:p, space :::p, comp label8:::p:25:p, space :::p, comp txtCustomerSearch:::p:25:p, space :::p, comp scrollPane1:::p:86:p, space :::p, comp scrollPane3:::p:100:p, space :::p}}"
+				"$horizontalGroup": "par l {comp panel1::l:::x, seq {space :::p, par l {comp label8::l:::x, comp txtCustomerSearch::l:::x}, space :::p}, comp panel3::t:::x, comp panel4::l:::x}"
+				"$verticalGroup": "par l {seq l {space :::x, comp panel1:::p:75:p, space :::p, comp label8:::p:25:p, space :::p, comp txtCustomerSearch:::p:25:p, space :::p, comp panel3:::p::p, space :::p, comp panel4:::p::p, space :::p}}"
 			} ) {
 				name: "panel2"
 				"background": sfield java.awt.SystemColor activeCaption
@@ -36,14 +36,6 @@ new FormModel {
 					name: "txtCustomerSearch"
 					"horizontalAlignment": 0
 					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "txtSearchKeyReleased", true ) )
-				} )
-				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-					name: "scrollPane1"
-					add( new FormComponent( "javax.swing.JTable" ) {
-						name: "tblServiceCustomer"
-						addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tblServiceCustomerKeyReleased", true ) )
-						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "tblServiceCustomerMouseClicked", true ) )
-					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {seq {par l {comp label9::t:p:125:p, comp label10:::p:125:p}, space :::p, par l {comp txtTitle:::p:149:p, comp scrollPane2:::p:149:p}, space s:::p, par l {comp label11:::p:95:p, comp label12:::::x}, space :::p, par l {seq l {comp txtPrice:::p:68:p, space :::p, comp label13::::58:x}, comp txtDays::::132:x}, space :::p, comp txtStatus:::p:75:p, space :p:24:p, par l {seq {comp btnServicesAdd:::p:70:p, space s:::p, comp btnServiceUpdate:::p:70:p, space s:::p, comp btnServiceDelete:::p:70:p}, seq {space :p:8:p, comp lblError:::p:220:p}}, space :::p}}"
@@ -143,12 +135,34 @@ new FormModel {
 						"font": #Font1
 					} )
 				} )
-				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-					name: "scrollPane3"
-					add( new FormComponent( "javax.swing.JTable" ) {
-						name: "tblCustomer"
-						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "tblCustomerMouseClicked", true ) )
-						addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tblCustomerKeyReleased", true ) )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp scrollPane1::l::878:x}"
+					"$verticalGroup": "par l {comp scrollPane1:::p:79:p}"
+				} ) {
+					name: "panel3"
+					"border": new javax.swing.border.TitledBorder( null, "Customer", 1, 0 )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "tblServiceCustomer"
+							addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tblServiceCustomerKeyReleased", true ) )
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "tblServiceCustomerMouseClicked", true ) )
+						} )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp scrollPane3::l::878:x}"
+					"$verticalGroup": "par l {seq t {space :0:0:x, comp scrollPane3:::p:100:p}}"
+				} ) {
+					name: "panel4"
+					"border": new javax.swing.border.TitledBorder( null, "Added Services", 1, 0 )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane3"
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "tblCustomer"
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "tblCustomerMouseClicked", true ) )
+							addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tblCustomerKeyReleased", true ) )
+						} )
 					} )
 				} )
 			} )

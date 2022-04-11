@@ -5,6 +5,7 @@
 package views;
 
 import java.awt.event.*;
+import javax.swing.border.*;
 
 import models.DasbordImpl;
 import models.DasbordImpl;
@@ -208,8 +209,6 @@ public class ServicesAdd extends Base {
         panel2 = new JPanel();
         label8 = new JLabel();
         txtCustomerSearch = new JTextField();
-        scrollPane1 = new JScrollPane();
-        tblServiceCustomer = new JTable();
         panel1 = new JPanel();
         txtTitle = new JTextField();
         txtDays = new JTextField();
@@ -226,6 +225,10 @@ public class ServicesAdd extends Base {
         lblError = new JLabel();
         btnServiceDelete = new JButton();
         txtStatus = new JTextField();
+        panel3 = new JPanel();
+        scrollPane1 = new JScrollPane();
+        tblServiceCustomer = new JTable();
+        panel4 = new JPanel();
         scrollPane3 = new JScrollPane();
         tblCustomer = new JTable();
         label6 = new JLabel();
@@ -267,25 +270,6 @@ public class ServicesAdd extends Base {
                     txtSearchKeyReleased(e);
                 }
             });
-
-            //======== scrollPane1 ========
-            {
-
-                //---- tblServiceCustomer ----
-                tblServiceCustomer.addKeyListener(new KeyAdapter() {
-                    @Override
-                    public void keyReleased(KeyEvent e) {
-                        tblServiceCustomerKeyReleased(e);
-                    }
-                });
-                tblServiceCustomer.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        tblServiceCustomerMouseClicked(e);
-                    }
-                });
-                scrollPane1.setViewportView(tblServiceCustomer);
-            }
 
             //======== panel1 ========
             {
@@ -442,23 +426,76 @@ public class ServicesAdd extends Base {
                 );
             }
 
-            //======== scrollPane3 ========
+            //======== panel3 ========
             {
+                panel3.setBorder(new TitledBorder(null, "Customer", TitledBorder.LEFT, TitledBorder.DEFAULT_POSITION));
 
-                //---- tblCustomer ----
-                tblCustomer.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        tblCustomerMouseClicked(e);
-                    }
-                });
-                tblCustomer.addKeyListener(new KeyAdapter() {
-                    @Override
-                    public void keyReleased(KeyEvent e) {
-                        tblCustomerKeyReleased(e);
-                    }
-                });
-                scrollPane3.setViewportView(tblCustomer);
+                //======== scrollPane1 ========
+                {
+
+                    //---- tblServiceCustomer ----
+                    tblServiceCustomer.addKeyListener(new KeyAdapter() {
+                        @Override
+                        public void keyReleased(KeyEvent e) {
+                            tblServiceCustomerKeyReleased(e);
+                        }
+                    });
+                    tblServiceCustomer.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            tblServiceCustomerMouseClicked(e);
+                        }
+                    });
+                    scrollPane1.setViewportView(tblServiceCustomer);
+                }
+
+                GroupLayout panel3Layout = new GroupLayout(panel3);
+                panel3.setLayout(panel3Layout);
+                panel3Layout.setHorizontalGroup(
+                    panel3Layout.createParallelGroup()
+                        .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
+                );
+                panel3Layout.setVerticalGroup(
+                    panel3Layout.createParallelGroup()
+                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
+                );
+            }
+
+            //======== panel4 ========
+            {
+                panel4.setBorder(new TitledBorder(null, "Added Services", TitledBorder.LEFT, TitledBorder.DEFAULT_POSITION));
+
+                //======== scrollPane3 ========
+                {
+
+                    //---- tblCustomer ----
+                    tblCustomer.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            tblCustomerMouseClicked(e);
+                        }
+                    });
+                    tblCustomer.addKeyListener(new KeyAdapter() {
+                        @Override
+                        public void keyReleased(KeyEvent e) {
+                            tblCustomerKeyReleased(e);
+                        }
+                    });
+                    scrollPane3.setViewportView(tblCustomer);
+                }
+
+                GroupLayout panel4Layout = new GroupLayout(panel4);
+                panel4.setLayout(panel4Layout);
+                panel4Layout.setHorizontalGroup(
+                    panel4Layout.createParallelGroup()
+                        .addComponent(scrollPane3, GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
+                );
+                panel4Layout.setVerticalGroup(
+                    panel4Layout.createParallelGroup()
+                        .addGroup(GroupLayout.Alignment.TRAILING, panel4Layout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+                );
             }
 
             GroupLayout panel2Layout = new GroupLayout(panel2);
@@ -470,10 +507,10 @@ public class ServicesAdd extends Base {
                         .addContainerGap()
                         .addGroup(panel2Layout.createParallelGroup()
                             .addComponent(label8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCustomerSearch)
-                            .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
-                            .addComponent(scrollPane3, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE))
+                            .addComponent(txtCustomerSearch))
                         .addContainerGap())
+                    .addComponent(panel3, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
             panel2Layout.setVerticalGroup(
                 panel2Layout.createParallelGroup()
@@ -485,9 +522,9 @@ public class ServicesAdd extends Base {
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCustomerSearch, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
             );
         }
@@ -528,7 +565,7 @@ public class ServicesAdd extends Base {
                             .addComponent(label6, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
                             .addComponent(label7, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 347, GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(11, Short.MAX_VALUE))
         );
         pack();
@@ -541,8 +578,6 @@ public class ServicesAdd extends Base {
     private JPanel panel2;
     private JLabel label8;
     private JTextField txtCustomerSearch;
-    private JScrollPane scrollPane1;
-    private JTable tblServiceCustomer;
     private JPanel panel1;
     private JTextField txtTitle;
     private JTextField txtDays;
@@ -559,6 +594,10 @@ public class ServicesAdd extends Base {
     private JLabel lblError;
     private JButton btnServiceDelete;
     private JTextField txtStatus;
+    private JPanel panel3;
+    private JScrollPane scrollPane1;
+    private JTable tblServiceCustomer;
+    private JPanel panel4;
     private JScrollPane scrollPane3;
     private JTable tblCustomer;
     private JLabel label6;

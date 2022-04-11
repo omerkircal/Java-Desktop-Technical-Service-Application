@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "views.Base", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {seq l {space :::p, comp label3:::p:166:p, space :::p, comp label4:::p:323:p, space ::81:x, comp lblName:::p:300:p, space :::p}, comp panel1::l:::x}"
-			"$verticalGroup": "par l {seq l {space :::p, par l {comp lblName:::p::p, par b {comp label3::b:p:68:p, comp label4::b:p:46:p}}, space ::8:x, comp panel1:::p::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, par l {comp lblName:::p::p, par b {comp label3::b:p:68:p, comp label4::b:p:46:p}}, space :::x, comp panel1:::p::p}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 2
@@ -19,8 +19,8 @@ new FormModel {
 				"foreground": sfield java.awt.SystemColor windowText
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq t {par t {seq {space :::p, comp scrollPane1::::876:x}, seq {space :::p, comp scrollPane2::::876:x}, seq l {space :p:288:p, par l:::p {comp txtSearch:::::x, seq {comp btnCustomerAdd:::p:95:p, space u:::p, comp btnAddService:::p:95:p, space u:::p, comp btnArchive:::p:95:p}}, space :0:285:x}}, space :::p}}"
-				"$verticalGroup": "par l {seq l {space :::p, par l {comp btnArchive:::p:95:p, comp btnAddService:::p:95:p, comp btnCustomerAdd:::p:95:p}, space u:::p, comp txtSearch:::p::p, space u:::p, comp scrollPane1::::146:x, space s:::p, comp scrollPane2:::p:157:p}}"
+				"$horizontalGroup": "par l {comp panel2::l:::x, seq {space :p:288:p, par l:::p {comp txtSearch:::::x, seq {comp btnCustomerAdd:::p:95:p, space u:::p, comp btnAddService:::p:95:p, space u:::p, comp btnArchive:::p:95:p}}, space ::291:x}, comp panel3::l:::x}"
+				"$verticalGroup": "par l {seq l {space :::p, par l {comp btnArchive:::p:95:p, comp btnAddService:::p:95:p, comp btnCustomerAdd:::p:95:p}, space u:::p, comp txtSearch:::p::p, space :p:2:p, comp panel2:::p:164:p, space u:::p, comp panel3:::p:178:p, space ::23:x}}"
 			} ) {
 				name: "panel1"
 				"background": sfield java.awt.SystemColor activeCaption
@@ -58,16 +58,30 @@ new FormModel {
 					name: "txtSearch"
 					"font": new java.awt.Font( "Segoe UI", 1, 14 )
 				} )
-				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-					name: "scrollPane1"
-					add( new FormComponent( "javax.swing.JTable" ) {
-						name: "tblNotCompleted"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp scrollPane1::t::878:x}"
+					"$verticalGroup": "par l {seq t {space :0:0:x, comp scrollPane1:::p:146:p}}"
+				} ) {
+					name: "panel2"
+					"border": new javax.swing.border.TitledBorder( null, "Not Completed Services", 1, 0 )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "tblNotCompleted"
+						} )
 					} )
 				} )
-				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-					name: "scrollPane2"
-					add( new FormComponent( "javax.swing.JTable" ) {
-						name: "tblCompleted"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp scrollPane2::l::872:x}"
+					"$verticalGroup": "par l {comp scrollPane2:::p:157:p}"
+				} ) {
+					name: "panel3"
+					"border": new javax.swing.border.TitledBorder( null, "Completed Services", 1, 0 )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane2"
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "tblCompleted"
+						} )
 					} )
 				} )
 			} )
