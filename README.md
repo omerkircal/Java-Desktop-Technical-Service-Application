@@ -12,7 +12,7 @@
 
 ### Languages and Technologies Used in This Project
 
-| Language/Technology  | : tw-25b6 :  | %  |
+| Language/Technology  | ** ->**  | %  |
 | ------------ | ------------ | ------------ |
 |  JAVA | ** ->** |  80 |
 | OOP  |  ** ->** |100  |
@@ -22,25 +22,8 @@
 
 ------------
 
-# Project Display Image
-<p>
-<a href="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/loginPanel.PNG" target="_blank">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/loginPanel.PNG" width="200" style="max-width:100%;"></a>
-  
-<a href="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/dashboarPanel.PNG" target="_blank">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/dashboarPanel.PNG" width="200" style="max-width:100%;"></a>
-  
-<a href="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerPanel.PNG" target="_blank">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerPanel.PNG" width="200" style="max-width:100%;"></a>  
-  
-<a href="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerValidation1.PNG" target="_blank">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerValidation1.PNG" width="200" style="max-width:100%;"></a>
-  
-<a href="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerValidation2.PNG" target="_blank">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerValidation2.PNG" width="200" style="max-width:100%;"></a>
-  
-<a href="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerDelete.PNG" target="_blank">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerDelete.PNG" width="200" style="max-width:100%;"></a>  
+### Application Images
 
-</p> 
+[![](Technical Service)](https://github.com/omerkircal/java-desktop-technical-service/blob/main/pictures/addCustomerDelete.PNG)
+
 
