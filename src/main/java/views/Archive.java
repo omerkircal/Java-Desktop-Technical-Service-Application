@@ -5,6 +5,8 @@
 package views;
 
 import javax.swing.border.*;
+
+import models.ServiceImpl;
 import models.UserImpl;
 
 import java.awt.*;
@@ -21,20 +23,15 @@ public class Archive extends Base {
         lblName.setText("Dear. " + UserImpl.name);
     }
 
-    private void btnCustomerAddClicked(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void btnAddServiceClicked(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void btnArchiveClicked(ActionEvent e) {
-        // TODO add your code here
-    }
+    ServiceImpl serviceImpl=new ServiceImpl();
 
     private void thisWindowClosing(WindowEvent e) {
         new Dashbord().setVisible(true);
+    }
+
+    private void txtSearchKeyReleased(KeyEvent e) {
+        String Search = txtSearch.getText().trim();
+        table1.setModel(serviceImpl.serviceCustomerTable(Search));
     }
 
     private void initComponents() {
@@ -114,6 +111,12 @@ public class Archive extends Base {
 
         //---- txtSearch ----
         txtSearch.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        txtSearch.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                txtSearchKeyReleased(e);
+            }
+        });
 
         //---- label8 ----
         label8.setText(" SEARCH");

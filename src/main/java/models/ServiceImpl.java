@@ -17,9 +17,12 @@ public class ServiceImpl implements IService {
     List<Customer> ls = new ArrayList<>();
     List<Customer> lsSearch = new ArrayList<>();
     List<Service> serviceList = new ArrayList<>();
+    List<Service> serviceSearchList = new ArrayList<>();
     public ServiceImpl(){
         ls = serviceCustomerList();
         lsSearch = ls;
+        serviceList=serviceList();
+        serviceSearchList=serviceList;
     }
 
     @Override
@@ -159,6 +162,34 @@ public class ServiceImpl implements IService {
             db.close();
         }
         return serviceList;
+    }
+
+    @Override
+    public List<Service> archiveServiceList() {
+        List<Service> ls=new ArrayList<>();
+        try{
+            String sql="select * from service where status = 4 ORDER BY sid desc ";
+            PreparedStatement pre = db.connect().prepareStatement(sql);
+            ResultSet rs= pre.executeQuery();
+            while (rs.next()){
+                int sid=rs.getInt("sid");
+                int cid=rs.getInt("cid");
+                String info=rs.getString("info");
+                String title=rs.getString("title");
+                int days=rs.getInt("days");
+                String date=rs.getString("date");
+                int status=rs.getInt("status");
+                int price=rs.getInt("price");
+                Service s=new Service(sid,cid,title,info,days,date,status,price);
+                ls.add(s);
+            }
+        }catch (Exception e){
+            System.out.println("serviceList Error : "+e);
+        }
+        finally {
+            db.close();
+        }
+        return ls;
     }
 
     @Override

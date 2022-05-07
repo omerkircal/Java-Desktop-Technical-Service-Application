@@ -7,7 +7,9 @@ package views;
 import java.awt.event.*;
 import javax.swing.border.*;
 
+import models.CustomerServiceImpl;
 import models.DasbordImpl;
+import models.ServiceImpl;
 import models.UserImpl;
 
 import java.awt.*;
@@ -18,12 +20,14 @@ import javax.swing.GroupLayout;
  * @author unknown
  */
 public class Dashbord extends Base {
-    DasbordImpl dashbordImpl=new DasbordImpl();
+    CustomerServiceImpl customerServiceImplFirst=new CustomerServiceImpl(2);
+    CustomerServiceImpl customerServiceImplReady=new CustomerServiceImpl(3);
+
     public Dashbord() {
         initComponents();
         lblName.setText("Sayın "+UserImpl.name);
-        //tblCompleted.setModel(dashbordImpl.customerModel());
-        tblNotCompleted.setModel(dashbordImpl.customerModel());
+        tblNotCompleted.setModel(customerServiceImplFirst.serviceCustomerTable(null));
+        tblCompleted.setModel(customerServiceImplReady.serviceCustomerTable(null));
     }
 
     private void btnCustomerAddClicked(ActionEvent e) {
@@ -52,7 +56,6 @@ public class Dashbord extends Base {
         btnCustomerAdd = new JButton();
         btnAddService = new JButton();
         btnArchive = new JButton();
-        txtSearch = new JTextField();
         panel2 = new JPanel();
         scrollPane1 = new JScrollPane();
         tblNotCompleted = new JTable();
@@ -105,9 +108,6 @@ public class Dashbord extends Base {
             btnArchive.setBorder(null);
             btnArchive.addActionListener(e -> btnArchiveClicked(e));
 
-            //---- txtSearch ----
-            txtSearch.setFont(new Font("Segoe UI", Font.BOLD, 14));
-
             //======== panel2 ========
             {
                 panel2.setBorder(new TitledBorder(null, "Not Completed Services", TitledBorder.LEFT, TitledBorder.DEFAULT_POSITION));
@@ -144,7 +144,7 @@ public class Dashbord extends Base {
                 panel3.setLayout(panel3Layout);
                 panel3Layout.setHorizontalGroup(
                     panel3Layout.createParallelGroup()
-                        .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
+                        .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
                 );
                 panel3Layout.setVerticalGroup(
                     panel3Layout.createParallelGroup()
@@ -159,14 +159,11 @@ public class Dashbord extends Base {
                     .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(288, 288, 288)
-                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtSearch)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(btnCustomerAdd, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnAddService, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnArchive, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCustomerAdd, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAddService, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnArchive, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(291, Short.MAX_VALUE))
                     .addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
@@ -178,9 +175,7 @@ public class Dashbord extends Base {
                             .addComponent(btnArchive, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddService, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCustomerAdd, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSearch, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
+                        .addGap(54, 54, 54)
                         .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panel3, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
@@ -237,13 +232,12 @@ public class Dashbord extends Base {
     private JButton btnCustomerAdd;
     private JButton btnAddService;
     private JButton btnArchive;
-    private JTextField txtSearch;
     private JPanel panel2;
     private JScrollPane scrollPane1;
     public JTable tblNotCompleted;
     private JPanel panel3;
     private JScrollPane scrollPane2;
-    public JTable tblCompleted;
+    private JTable tblCompleted;
     private JLabel label3;
     private JLabel label4;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

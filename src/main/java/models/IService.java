@@ -14,5 +14,5 @@ public interface IService {
     int serviceDelete(int cid);
     int serviceUpdate (Service service);
     List<Service> serviceList();
-
+    List<Service> archiveServiceList();
 }

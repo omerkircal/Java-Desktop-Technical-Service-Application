@@ -7,6 +7,7 @@ package views;
 import java.awt.event.*;
 
 import models.UserImpl;
+import utils.Mail;
 import utils.Util;
 
 import java.awt.*;
@@ -29,6 +30,8 @@ public class Login extends Base {
         initComponents();
         txtPassword.setText("12345");
         txtEmail.setText("omer@mail.com");
+
+        Mail.send("kircalkircal@gmail.com","Java Send Mail","Deneme");
     }
 
     private void btnLoginClicked(ActionEvent e) {

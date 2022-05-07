@@ -11,6 +11,7 @@ import models.DasbordImpl;
 import models.DasbordImpl;
 import models.ServiceImpl;
 import models.UserImpl;
+import props.ComboItem;
 import props.Customer;
 import props.Service;
 import utils.Util;
@@ -46,7 +47,7 @@ public class ServicesAdd extends Base {
         int sid=service.getSid();
         int cid=service.getCid();
         String date=service.getDate();
-        int status=service.getStatus();
+        int status = Integer.parseInt(((ComboItem)cmbStatus.getSelectedItem()).getValue());
         String title=txtTitle.getText().toLowerCase(Locale.ROOT).trim();
         String info=txtInfo.getText().toLowerCase(Locale.ROOT).trim();
         int days= Integer.parseInt(txtDays.getText());
@@ -65,9 +66,9 @@ public class ServicesAdd extends Base {
         }else if(price==0){
             lblError.setText("Please Enter Price");
             txtPrice.requestFocus();
-        }else if(status==0){
+        }else if(cmbStatus.getSelectedItem().equals("")){
             lblError.setText("Please Enter Status");
-            txtStatus.requestFocus();
+            cmbStatus.requestFocus();
         }else {
             lblError.setText("");
             Service service = new Service(0,cid,title,info,days,date,status,price);
@@ -120,11 +121,18 @@ public class ServicesAdd extends Base {
         txtInfo.setText(info);
         txtDays.setText(String.valueOf(days));
         txtPrice.setText(String.valueOf(price));
-        txtStatus.setText(String.valueOf(status));
+        cmbStatus.getSelectedItem();
 
     }
 
+    private void fncCmbStatusAdd(){
+        cmbStatus.addItem(new ComboItem("status 0","0"));
+        cmbStatus.addItem(new ComboItem("status 1","1"));
+        cmbStatus.addItem(new ComboItem("status 2","2"));
+        cmbStatus.addItem(new ComboItem("status 3","3"));
+        cmbStatus.addItem(new ComboItem("status 4","4"));
 
+    }
 
     private void btnServicesAddClicked(ActionEvent e) {
         Service s = fncDataValid();
@@ -144,7 +152,7 @@ public class ServicesAdd extends Base {
         String info = txtInfo.getText();
         int days = Integer.parseInt(txtDays.getText());
         int price = Integer.parseInt(txtPrice.getText());
-        int status = Integer.parseInt(txtStatus.getText());
+        int status = Integer.parseInt(((ComboItem)cmbStatus.getSelectedItem()).getValue());
 
         Service service = new Service(selectedId,title,info,days,price,status);
         if (row!=-1){
@@ -181,9 +189,6 @@ public class ServicesAdd extends Base {
         // TODO add your code here
     }
 
-    private void tblServiceCustomerMouseClicked(MouseEvent e) {
-        rowValue();
-    }
 
     private void tblCustomerMouseClicked(MouseEvent e) {
         rowSelect();
@@ -194,11 +199,13 @@ public class ServicesAdd extends Base {
     }
 
 
-
     private void tblServiceCustomerKeyReleased(KeyEvent e) {
         rowValue();
     }
 
+    private void tblServiceCustomerMouseClicked(MouseEvent e) {
+        rowValue();
+    }
 
 
 
@@ -224,7 +231,7 @@ public class ServicesAdd extends Base {
         label13 = new JLabel();
         lblError = new JLabel();
         btnServiceDelete = new JButton();
-        txtStatus = new JTextField();
+        cmbStatus = new JComboBox();
         panel3 = new JPanel();
         scrollPane1 = new JScrollPane();
         tblServiceCustomer = new JTable();
@@ -351,9 +358,6 @@ public class ServicesAdd extends Base {
                 btnServiceDelete.setToolTipText("DELETE");
                 btnServiceDelete.addActionListener(e -> btnServiceDeleteClicked(e));
 
-                //---- txtStatus ----
-                txtStatus.setFont(new Font("Segoe UI", Font.BOLD, 12));
-
                 GroupLayout panel1Layout = new GroupLayout(panel1);
                 panel1.setLayout(panel1Layout);
                 panel1Layout.setHorizontalGroup(
@@ -378,8 +382,8 @@ public class ServicesAdd extends Base {
                                     .addComponent(label13, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
                                 .addComponent(txtDays, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtStatus, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-                            .addGap(24, 24, 24)
+                            .addComponent(cmbStatus, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+                            .addGap(39, 39, 39)
                             .addGroup(panel1Layout.createParallelGroup()
                                 .addGroup(panel1Layout.createSequentialGroup()
                                     .addComponent(btnServicesAdd, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
@@ -413,8 +417,8 @@ public class ServicesAdd extends Base {
                                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                             .addComponent(txtPrice, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                                             .addComponent(label13, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtStatus, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(157, 157, 157))))
+                                            .addComponent(cmbStatus, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(34, 34, 34))))
                         .addGroup(panel1Layout.createSequentialGroup()
                             .addGroup(panel1Layout.createParallelGroup()
                                 .addComponent(btnServicesAdd, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
@@ -593,7 +597,7 @@ public class ServicesAdd extends Base {
     private JLabel label13;
     private JLabel lblError;
     private JButton btnServiceDelete;
-    private JTextField txtStatus;
+    private JComboBox cmbStatus;
     private JPanel panel3;
     private JScrollPane scrollPane1;
     private JTable tblServiceCustomer;

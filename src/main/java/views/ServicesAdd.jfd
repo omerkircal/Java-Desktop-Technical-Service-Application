@@ -38,8 +38,8 @@ new FormModel {
 					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "txtSearchKeyReleased", true ) )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par l {comp label9::t:p:125:p, comp label10:::p:125:p}, space :::p, par l {comp txtTitle:::p:149:p, comp scrollPane2:::p:149:p}, space s:::p, par l {comp label11:::p:95:p, comp label12:::::x}, space :::p, par l {seq l {comp txtPrice:::p:68:p, space :::p, comp label13::::58:x}, comp txtDays::::132:x}, space :::p, comp txtStatus:::p:75:p, space :p:24:p, par l {seq {comp btnServicesAdd:::p:70:p, space s:::p, comp btnServiceUpdate:::p:70:p, space s:::p, comp btnServiceDelete:::p:70:p}, seq {space :p:8:p, comp lblError:::p:220:p}}, space :::p}}"
-					"$verticalGroup": "par l {seq {space :::p, par b {comp label9::b:::x, comp label11::b:::x, comp txtTitle::b::0:x, comp txtDays::b:p:26:p}, space :::p, par l {seq t {comp scrollPane2:::p:36:p, space :p:144:p}, seq {par l {comp label10:::p:25:p, comp label12:::p:25:p, par b {comp txtPrice::b:p:25:p, comp label13::b:p:25:p, comp txtStatus::b:p:25:p}}, space :p:157:p}}}, seq {par l {comp btnServicesAdd:::p:70:p, comp btnServiceUpdate:::p:70:p, comp btnServiceDelete:::p:70:p}, space u:::p, comp lblError:::p:18:p, space :0:0:x}}"
+					"$horizontalGroup": "par l {seq {par l {comp label9::t:p:125:p, comp label10:::p:125:p}, space :::p, par l {comp txtTitle:::p:149:p, comp scrollPane2:::p:149:p}, space s:::p, par l {comp label11:::p:95:p, comp label12:::::x}, space :::p, par l {seq l {comp txtPrice:::p:68:p, space :::p, comp label13::::58:x}, comp txtDays::::132:x}, space :::p, comp cmbStatus:::p:60:p, space :p:39:p, par l {seq {comp btnServicesAdd:::p:70:p, space s:::p, comp btnServiceUpdate:::p:70:p, space s:::p, comp btnServiceDelete:::p:70:p}, seq {space :p:8:p, comp lblError:::p:220:p}}, space :::p}}"
+					"$verticalGroup": "par l {seq {space :::p, par b {comp label9::b:::x, comp label11::b:::x, comp txtTitle::b::0:x, comp txtDays::b:p:26:p}, space :::p, par l {seq t {comp scrollPane2:::p:36:p, space :p:144:p}, seq {par l {comp label10:::p:25:p, comp label12:::p:25:p, par b {comp txtPrice::b:p:25:p, comp label13::b:p:25:p, comp cmbStatus::b:p::p}}, space :p:34:p}}}, seq {par l {comp btnServicesAdd:::p:70:p, comp btnServiceUpdate:::p:70:p, comp btnServiceDelete:::p:70:p}, space u:::p, comp lblError:::p:18:p, space :0:0:x}}"
 				} ) {
 					name: "panel1"
 					"background": sfield java.awt.Color lightGray
@@ -130,9 +130,8 @@ new FormModel {
 						"toolTipText": "DELETE"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnServiceDeleteClicked", true ) )
 					} )
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "txtStatus"
-						"font": #Font1
+					add( new FormComponent( "javax.swing.JComboBox" ) {
+						name: "cmbStatus"
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {

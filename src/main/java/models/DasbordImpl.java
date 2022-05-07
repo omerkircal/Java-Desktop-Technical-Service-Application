@@ -12,11 +12,19 @@ import java.util.List;
 
 public class DasbordImpl {
     public List<Service> serviceList=new ArrayList<>();
+    public List<Service> serviceSearchList=new ArrayList<>();
     DB db=new DB();
+
+    public DasbordImpl(){}
+
+    public DasbordImpl(int status){
+        serviceList=serviceCustomerList(status);
+        serviceSearchList=serviceList;
+    }
 
     public DefaultTableModel customerModel() {
 
-        serviceCustomerList();
+      serviceList=serviceSearchList;
 
         DefaultTableModel tableModel=new DefaultTableModel();
 
@@ -41,7 +49,8 @@ public class DasbordImpl {
         return tableModel;
     }
 
-    public List<Service> serviceCustomerList() {
+    public List<Service> serviceCustomerList(int inpStatus) {
+        List<Service> customerServiceList = new ArrayList<>();
         try {
             String sql="select * from service s join customer c on s.cid=c.cid order by sid desc";
             PreparedStatement pre=db.connect().prepareStatement(sql);
