@@ -26,13 +26,13 @@
 ## Application Images
 
 | <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/loginPanel.PNG" width="300"> |
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/dashboarPanel.PNG" width="300">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerPanel.PNG" width="300">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerUpdate.PNG" width="300">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerDelete.PNG" width="300">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerValidation1.PNG" width="300">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerValidation2.PNG" width="300">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addServicePanel.PNG" width="300">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addServiceDelete.PNG" width="300">
-<img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/archivePanel.PNG" width="300">
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/dashboarPanel.PNG" width="300"> |
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerPanel.PNG" width="300"> |
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerUpdate.PNG" width="300"> |
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerDelete.PNG" width="300"> |
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerValidation1.PNG" width="300"> |
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addCustomerValidation2.PNG" width="300"> |
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addServicePanel.PNG" width="300"> |
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/addServiceDelete.PNG" width="300"> |
+| <img src="https://github.com/omerkircal/java-desktop-technical-service/blob/main/images/archivePanel.PNG" width="300"> |
 
